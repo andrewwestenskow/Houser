@@ -55,7 +55,7 @@ class Step3 extends Component {
       mortgage,
       rent
     }
-    await axios.post('/api/house', house)
+    await axios.post('/api/house', house).catch(err => console.log(err))
     
       store.dispatch({ type: CLEAR })
 
@@ -85,8 +85,10 @@ class Step3 extends Component {
 
         <div className="buttons-hold"><Link to='/wizard/step2'>
         <button className='nav-button'>Go Back</button>
+
+        
         </Link>
-        <button className='submit' onClick={this.handleSubmit}>Complete</button></div>
+        <button title='Delete House' className='submit' onClick={this.handleSubmit}>Complete</button></div>
       </div>
     )
   }
