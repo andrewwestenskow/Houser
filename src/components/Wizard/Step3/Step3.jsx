@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import store, { MORTGAGE, RENT, CLEAR } from './../../../store'
 import axios from 'axios'
+import './../Wizard.css'
 
 class Step3 extends Component {
 
@@ -72,14 +73,20 @@ class Step3 extends Component {
     }
 
     return (
-      <div>STEP 3
-        <h1>Recommended Rent: {this.state.mortgage * 1.25}</h1>
-        <input onChange={this.handleInput} type='number' name='mortgage' value={this.state.mortgage} />
-        <input onChange={this.handleInput} type='number' name='rent' value={this.state.rent} />
-        <Link to='/wizard/step2'>
-          <button>Go Back</button>
+      <div className='step-3'>
+
+        <div className="inputs-hold"><h1>Recommended Rent: {this.state.mortgage * 1.25}</h1>
+
+        <p className='input-label'>Monthly Mortgage</p>
+        <input className='long-input' onChange={this.handleInput} type='number' name='mortgage' value={this.state.mortgage} />
+        <p className='input-label'>Desired Monthly Rent</p>
+        <input className='long-input' onChange={this.handleInput} type='number' name='rent' value={this.state.rent} /></div>
+
+
+        <div className="buttons-hold"><Link to='/wizard/step2'>
+        <button className='nav-button'>Go Back</button>
         </Link>
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button className='submit' onClick={this.handleSubmit}>Complete</button></div>
       </div>
     )
   }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import store, {IMG} from './../../../store'
+import './../Wizard.css'
 
 class Step2 extends Component {
   constructor(props){
@@ -27,16 +28,20 @@ class Step2 extends Component {
 
   render(){
     return(
-      <div>STEP 2
-        <input onChange={this.handleInput} type="text" name='img' value={this.state.img} />
-
-        <Link to='/wizard/step1'>
-          <button>Go back</button>
+      <div className='step-2'>
+        <div className="inputs-hold-long">
+        <p className='input-label'>Image URL</p>
+        <input className='long-input' onChange={this.handleInput} type="text" name='img' value={this.state.img} /></div>
+        
+        
+        
+        <div className="buttons-hold"><Link to='/wizard/step1'>
+        <button className='nav-button'>Go back</button>
         </Link>
-
+        
         <Link to='/wizard/step3'>
-          <button onClick={()=>this.saveChanges()}>Next Step</button>
-        </Link>
+        <button className='nav-button' onClick={()=>this.saveChanges()}>Next Step</button>
+        </Link></div>
       </div>
     )
   }
